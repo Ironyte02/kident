@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__visualize__show_widget",
+      "Bash(npm run *)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:4173/)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:4173/sw.js)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:4173/manifest.json)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:4173/push-handler.js)",
+      "Bash(rm -f src/assets/kident-logo.svg)",
+      "Bash(git rm *)"
+    ]
+  }
+}

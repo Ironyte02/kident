@@ -1,0 +1,188 @@
+{
+  "metadata": {
+    "description": "Logistic regression ECC risk model — trained on 75-record STS dataset",
+    "features": [
+      "age_enc",
+      "gender_enc",
+      "meals_enc",
+      "sweets_enc",
+      "snacks_enc",
+      "sweet_drinks_enc",
+      "tiffin_enc",
+      "healthy_enc",
+      "rice_enc",
+      "brush_enc",
+      "paste_enc",
+      "rinse_enc",
+      "extra_enc",
+      "water_enc",
+      "fluoride_enc"
+    ],
+    "cv_accuracy": 0.9333,
+    "label": "1 = higher ECC risk, 0 = lower ECC risk",
+    "threshold": 0.5
+  },
+  "scaler": {
+    "mean": [
+      7.332,
+      0.5333333333333333,
+      0.9066666666666666,
+      1.48,
+      0.9733333333333334,
+      0.6,
+      2.4,
+      1.92,
+      1.6933333333333334,
+      1.3733333333333333,
+      1.1466666666666667,
+      2.026666666666667,
+      0.28,
+      2.466666666666667,
+      0.09333333333333334
+    ],
+    "scale": [
+      4.471067284963028,
+      0.4988876515698588,
+      0.5208539995899897,
+      1.0752984081949841,
+      0.9657236779856969,
+      0.8326663997864531,
+      0.8944271909999159,
+      0.8603875095947563,
+      0.9088209700241051,
+      0.5359933664597808,
+      0.9478865379827318,
+      0.9794329425177043,
+      0.5552176750308536,
+      0.9428090415820634,
+      0.29089898972361905
+    ]
+  },
+  "model": {
+    "intercept": 0.027802456426335945,
+    "coefficients": [
+      0.07139824783932243,
+      -0.10813414738959418,
+      -0.27875575716770884,
+      1.43241553797835,
+      1.1616024170569668,
+      0.6907553115371208,
+      0.004667103354849254,
+      0.09596958589154325,
+      -0.03432903229480231,
+      -0.6225519343687604,
+      -0.6429819899323651,
+      -0.5100146388091197,
+      -0.49910855701569934,
+      -0.395672279692281,
+      -0.43479959620289677
+    ]
+  },
+  "encodings": {
+    "freq4": {
+      "Never/Rarely": 0,
+      "1-2 times per week": 1,
+      "3-4 times per week": 2,
+      "Daily": 3
+    },
+    "healthy_freq": {
+      "Never/Rarely": 0,
+      "1 time daily": 1,
+      "2-3 times daily": 2,
+      "With every meal": 3
+    },
+    "rice_freq": {
+      "Never/Rarely": 0,
+      "1 time daily": 1,
+      "2 times daily": 2,
+      "More than 2 times daily": 3
+    },
+    "meals": {
+      "2 meals": 0,
+      "3 meals": 1,
+      "More than 3 meals": 2
+    },
+    "brush": {
+      "Rarely/Never": 0,
+      "Once": 1,
+      "Twice": 2
+    },
+    "toothpaste": {
+      "Non-fluoride": 0,
+      "Don't know": 1,
+      "Fluoride": 2
+    },
+    "rinse": {
+      "Never": 0,
+      "Rarely": 1,
+      "Sometimes": 2,
+      "Always": 3
+    },
+    "extra_cleaning": {
+      "No": 0,
+      "Sometimes": 1,
+      "Yes, regularly": 2
+    },
+    "water_source": {
+      "Well/borewell": 0,
+      "Tap/municipal": 1,
+      "Bottled": 2,
+      "Filtered (RO/purifier)": 3
+    },
+    "fluoride_treatment": {
+      "No/Don't know": 0,
+      "Yes": 1
+    },
+    "gender": {
+      "Boy": 0,
+      "Girl": 1
+    }
+  },
+  "recommendations": {
+    "high_sweets": {
+      "condition": "sweets_enc >= 2",
+      "message_en": "Reduce sweet and dessert intake — aim for no more than 1–2 times per week.",
+      "message_ta": "இனிப்பு மற்றும் இனிப்பு உணவுகளை குறைக்கவும் — வாரத்தில் 1–2 முறைக்கு மேல் வேண்டாம்."
+    },
+    "high_snacks": {
+      "condition": "snacks_enc >= 2",
+      "message_en": "Limit street food and chips. Replace with fruits, nuts, or homemade snacks.",
+      "message_ta": "தின்பண்டங்கள் மற்றும் சிப்ஸ் குறைக்கவும். பழங்கள் அல்லது வீட்டு உணவுகளை தேர்வு செய்யவும்."
+    },
+    "high_sweet_drinks": {
+      "condition": "sweet_drinks_enc >= 2",
+      "message_en": "Avoid sweet drinks like packaged juice and soft drinks. Prefer water or plain milk.",
+      "message_ta": "பழரசம் மற்றும் குளிர்பானங்களை தவிர்க்கவும். தண்ணீர் அல்லது சாதா பாலை தேர்வு செய்யவும்."
+    },
+    "low_brush": {
+      "condition": "brush_enc <= 1",
+      "message_en": "Brush teeth at least twice daily — morning and before bed.",
+      "message_ta": "காலை மற்றும் இரவு உறங்குவதற்கு முன் — தினமும் இரு முறை பல் துலக்கவும்."
+    },
+    "no_fluoride_paste": {
+      "condition": "paste_enc <= 1",
+      "message_en": "Switch to a fluoride toothpaste (e.g. Colgate Strong Teeth) for stronger enamel protection.",
+      "message_ta": "பல் மினாமலை பாதுகாக்க ஃப்ளோரைடு டூத்பேஸ்ட் (எ.கா. கோல்கேட் ஸ்ட்ராங் டீத்) பயன்படுத்தவும்."
+    },
+    "low_rinse": {
+      "condition": "rinse_enc <= 1",
+      "message_en": "Encourage rinsing with water after every meal to wash away food particles.",
+      "message_ta": "சாப்பிட்ட பிறகு வாயை தண்ணீரால் கொப்பளிக்க பழக்கப்படுத்தவும்."
+    },
+    "risky_water": {
+      "condition": "water_enc <= 1",
+      "message_en": "Consider using filtered or RO water. Unfiltered borewell/tap water may have unregulated fluoride levels.",
+      "message_ta": "வடிகட்டிய அல்லது RO தண்ணீர் பயன்படுத்துவதை கவனியுங்கள்."
+    },
+    "young_child": {
+      "condition": "age_enc <= 5",
+      "message_en": "Children under 5 are especially vulnerable to ECC — daily monitoring is recommended.",
+      "message_ta": "5 வயதுக்கு உட்பட்ட குழந்தைகள் ECC க்கு மிகவும் எளிதில் பாதிக்கப்படுவார்கள் — தினசரி கண்காணிப்பு பரிந்துரைக்கப்படுகிறது."
+    },
+    "good_habits": {
+      "condition": "brush_enc >= 2 and paste_enc >= 2 and rinse_enc >= 2",
+      "message_en": "Excellent oral hygiene habits! Keep up the twice-daily brushing routine.",
+      "message_ta": "சிறந்த வாய் சுகாதார பழக்கங்கள்! தினசரி இரு முறை பல் துலக்கும் வழக்கத்தை தொடர்ந்து செய்யுங்கள்."
+    }
+  }
+}

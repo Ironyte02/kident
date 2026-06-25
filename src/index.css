@@ -1,0 +1,134 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+  KiDent — Warm Cream + Mint + Coral
+  Editorial, warm, calm. Serif display + crisp sans body.
+*/
+
+@layer base {
+  :root {
+    --background: 36 38% 95%;        /* warm cream */
+    --foreground: 150 9% 13%;        /* deep charcoal-green */
+
+    --card: 0 0% 100%;
+    --card-foreground: 150 9% 13%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 150 9% 13%;
+
+    --primary: 153 58% 38%;          /* mint green */
+    --primary-foreground: 36 38% 97%;
+    --primary-glow: 153 60% 55%;
+
+    --secondary: 36 30% 90%;         /* sand */
+    --secondary-foreground: 150 9% 13%;
+
+    --muted: 36 28% 92%;
+    --muted-foreground: 150 6% 38%;
+
+    --accent: 8 90% 68%;             /* coral */
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 72% 52%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 38 22% 84%;
+    --input: 38 22% 84%;
+    --ring: 153 58% 38%;
+
+    --radius: 1.25rem;
+
+    --sidebar-background: 36 38% 95%;
+    --sidebar-foreground: 150 9% 13%;
+    --sidebar-primary: 153 58% 38%;
+    --sidebar-primary-foreground: 36 38% 97%;
+    --sidebar-accent: 36 30% 90%;
+    --sidebar-accent-foreground: 150 9% 13%;
+    --sidebar-border: 38 22% 84%;
+    --sidebar-ring: 153 58% 38%;
+
+    --risk-low: 153 58% 38%;
+    --risk-moderate: 35 92% 55%;
+    --risk-high: 8 78% 55%;
+
+    --gradient-hero: linear-gradient(135deg, hsl(153 58% 38%) 0%, hsl(153 60% 55%) 100%);
+    --gradient-warm: linear-gradient(180deg, hsl(36 38% 95%) 0%, hsl(36 30% 90%) 100%);
+    --shadow-soft: 0 1px 2px hsl(150 9% 13% / 0.04), 0 8px 24px -16px hsl(150 9% 13% / 0.10);
+    --shadow-elevated: 0 2px 6px hsl(150 9% 13% / 0.05), 0 20px 40px -20px hsl(153 58% 38% / 0.22);
+    --shadow-coral: 0 12px 32px -16px hsl(8 90% 68% / 0.45);
+  }
+
+  .dark {
+    --background: 150 12% 8%;
+    --foreground: 36 32% 92%;
+    --card: 150 10% 12%;
+    --card-foreground: 36 32% 92%;
+    --popover: 150 10% 12%;
+    --popover-foreground: 36 32% 92%;
+    --primary: 153 60% 55%;
+    --primary-foreground: 150 12% 8%;
+    --primary-glow: 153 70% 65%;
+    --secondary: 150 10% 16%;
+    --secondary-foreground: 36 32% 92%;
+    --muted: 150 10% 16%;
+    --muted-foreground: 36 14% 68%;
+    --accent: 8 90% 70%;
+    --accent-foreground: 150 12% 8%;
+    --destructive: 0 65% 55%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 150 8% 20%;
+    --input: 150 8% 20%;
+    --ring: 153 60% 55%;
+    --sidebar-background: 150 12% 8%;
+    --sidebar-foreground: 36 32% 92%;
+    --sidebar-primary: 153 60% 55%;
+    --sidebar-primary-foreground: 150 12% 8%;
+    --sidebar-accent: 150 10% 16%;
+    --sidebar-accent-foreground: 36 32% 92%;
+    --sidebar-border: 150 8% 20%;
+    --sidebar-ring: 153 60% 55%;
+    --risk-low: 153 60% 55%;
+    --risk-moderate: 35 92% 60%;
+    --risk-high: 8 85% 65%;
+
+    --gradient-hero: linear-gradient(135deg, hsl(153 60% 55%) 0%, hsl(153 70% 65%) 100%);
+    --gradient-warm: linear-gradient(180deg, hsl(150 12% 8%) 0%, hsl(150 10% 12%) 100%);
+    --shadow-soft: 0 1px 2px hsl(0 0% 0% / 0.3), 0 8px 24px -12px hsl(153 60% 55% / 0.22);
+    --shadow-elevated: 0 4px 12px hsl(0 0% 0% / 0.45), 0 24px 48px -16px hsl(153 60% 55% / 0.30);
+    --shadow-coral: 0 12px 32px -16px hsl(8 90% 70% / 0.45);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased transition-colors duration-500;
+    font-feature-settings: "ss01", "cv11";
+  }
+
+  h1, h2, h3 {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+  }
+
+  h4, h5, h6 {
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    letter-spacing: -0.015em;
+  }
+}
+
+@layer utilities {
+  .bg-hero-gradient { background-image: var(--gradient-hero); }
+  .bg-warm-gradient { background-image: var(--gradient-warm); }
+  .shadow-soft { box-shadow: var(--shadow-soft); }
+  .shadow-elevated { box-shadow: var(--shadow-elevated); }
+  .shadow-coral { box-shadow: var(--shadow-coral); }
+  .text-balance { text-wrap: balance; }
+  .font-serif { font-family: 'Instrument Serif', Georgia, serif; }
+}
