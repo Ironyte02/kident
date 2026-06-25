@@ -31,6 +31,16 @@ const supabase = createClient(
 
 Deno.serve(async (req) => {
   try {
+    // Auth guard: only callers that know CRON_SECRET may trigger sends.
+    // (Deployed with --no-verify-jwt, so this is the only gate.)
+    const CRON_SECRET = Deno.env.get("CRON_SECRET");
+    if (CRON_SECRET && req.headers.get("x-cron-secret") !== CRON_SECRET) {
+      return new Response(JSON.stringify({ error: "unauthorized" }), {
+        status: 401,
+        headers: { "Content-Type": "application/json" },
+      });
+    }
+
     const { user_id, title, body, url } = await req.json().catch(() => ({}));
 
     let query = supabase.from("push_subscriptions").select("endpoint, p256dh, auth");
