@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
-import { lovable } from "@/integrations/lovable/index";
 import { t } from "@/lib/i18n";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -103,12 +102,11 @@ export default function AuthPage() {
             variant="outline"
             className="w-full gap-2"
             onClick={async () => {
-              const result = await lovable.auth.signInWithOAuth("google", {
-                redirect_uri: window.location.origin,
+              const { error } = await supabase.auth.signInWithOAuth({
+                provider: "google",
+                options: { redirectTo: window.location.origin },
               });
-              if (result.error) {
-                toast.error(result.error instanceof Error ? result.error.message : "Google sign-in failed");
-              }
+              if (error) toast.error(error.message);
             }}
           >
             <svg className="w-4 h-4" viewBox="0 0 24 24">
