@@ -6,7 +6,7 @@ import { getRiskLevel, type Recommendation, type RiskLevel } from "@/lib/riskCal
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Home, Utensils, ShieldCheck, AlertTriangle } from "lucide-react";
-import kidentLogo from "@/assets/kident-logo.png";
+import kidentLogo from "@/assets/kident-emblem.png";
 import AnimatedRiskBar from "@/components/AnimatedRiskBar";
 import DisclaimerModal from "@/components/DisclaimerModal";
 import PageTransition from "@/components/PageTransition";

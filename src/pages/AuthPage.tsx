@@ -3,9 +3,9 @@ import { supabase } from "@/integrations/supabase/client";
 import { t } from "@/lib/i18n";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { toast } from "sonner";
-import kidentLogo from "@/assets/kident-logo.png";
+import kidentMark from "@/assets/kident-emblem.png";
 import AnimatedBackground from "@/components/AnimatedBackground";
 import ThemeToggle from "@/components/ThemeToggle";
 
@@ -52,11 +52,15 @@ export default function AuthPage() {
       <Card className="w-full max-w-md shadow-elevated relative z-[2] border-border/60">
         <CardHeader className="text-center space-y-3 pb-4">
           <img
-            src={kidentLogo}
-            alt="KiDent — Care Today, Smile Forever"
-            className="w-44 h-auto mx-auto animate-bounce-in"
+            src={kidentMark}
+            alt="KiDent"
+            className="w-28 h-28 mx-auto animate-bounce-in"
           />
-          <p className="text-muted-foreground text-sm italic font-serif">{t.auth.parentAccount}</p>
+          <CardTitle className="text-4xl font-serif font-normal tracking-tight text-foreground">
+            {t.app.name}
+          </CardTitle>
+          <p className="text-muted-foreground text-sm italic font-serif">Care Today, Smile Forever</p>
+          <p className="text-muted-foreground text-xs">{t.auth.parentAccount}</p>
         </CardHeader>
         <CardContent>
           <form onSubmit={handleSubmit} className="space-y-4">

@@ -7,7 +7,7 @@ import { t } from "@/lib/i18n";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Plus, Calendar, BarChart3, LogOut } from "lucide-react";
-import kidentLogo from "@/assets/kident-logo.png";
+import kidentLogo from "@/assets/kident-emblem.png";
 import PageTransition from "@/components/PageTransition";
 import AppFooter from "@/components/AppFooter";
 import AnimatedBackground from "@/components/AnimatedBackground";
