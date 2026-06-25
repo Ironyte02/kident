@@ -9,7 +9,14 @@
  */
 import { supabase } from "@/integrations/supabase/client";
 
-const VAPID_PUBLIC_KEY = import.meta.env.VITE_VAPID_PUBLIC_KEY as string | undefined;
+// Public VAPID key — safe to ship to the browser (it is public by design).
+// An env var overrides it if set; otherwise we fall back to this committed
+// value so the subscribe flow works without depending on host env config.
+// NOTE: only the PUBLIC key belongs here. The matching PRIVATE key must live
+// solely in the send-push Edge Function secrets.
+const VAPID_PUBLIC_KEY =
+  (import.meta.env.VITE_VAPID_PUBLIC_KEY as string | undefined) ||
+  "BNyzwxNw2dkin9gqjU3C9fMx_Oi2pwcpJKZodQZhDIRxcaYbbdGb1Mr_00DGph6GvKZ4_WYtmIEWPjPQmnAABHc";
 
 export function pushSupported(): boolean {
   return (
